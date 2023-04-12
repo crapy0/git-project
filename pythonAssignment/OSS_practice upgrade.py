@@ -1,7 +1,3 @@
-# sum1 = 0
-# sum2 = 0
-# gpa = 0
-# sGpa = 0, 초기화가 필요 없는 줄을 몰랐습니다...
 totalGrade, totalSum1, sTotalSum1 = 0, 0, 0
 
 subject = {key: "" for key in range(100, 500)}
@@ -25,7 +21,7 @@ def gradeCompute(sum2):
         case 'F':
             return 0
 
-def chkDup(lst):
+def chkDup(lst): # 중복된 수강내역 중 낮은 학점을 받은 이력을 제거하는 함수입니다
     for i in range(len(lst)-1):
         if subject[lst[i][0]] == subject[lst[len(lst)-1][0]]:
             if gradeCompute(lst[i][2]) >= gradeCompute(lst[len(lst)-1][2]):
@@ -57,7 +53,7 @@ while totalSum1 + sTotalSum1 < 132:
             sTotalSum1 += sum1
         totalGrade += sum1 * gradeCompute(sum2)
         key += 1
-        item = chkDup(item)
+        item = chkDup(item) # item에 들어있는 수강과목 중에서 중복된 값을 제거합니다
         print()
             
     elif p==2:
